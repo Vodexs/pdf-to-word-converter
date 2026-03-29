@@ -3,32 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محول ديشا السريع | PDF to Word</title>
+    <title>Converti | محول الملفات الذكي</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; text-align: center; padding: 50px; }
-        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); display: inline-block; max-width: 400px; width: 100%; }
-        h1 { color: #d9534f; }
-        input[type="file"] { margin: 20px 0; }
-        button { background-color: #5cb85c; color: white; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 18px; width: 100%; }
-        button:hover { background-color: #4cae4c; }
-        .ads { background: #eee; height: 100px; margin: 20px 0; line-height: 100px; border: 1px dashed #bbb; color: #888; }
+        body {
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 50px 30px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .logo {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 5px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+        }
+        .logo span { color: #38bdf8; }
+        .tagline {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 40px;
+        }
+        .custom-file-input {
+            background: rgba(15, 23, 42, 0.5);
+            border: 1px solid #334155;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            width: 100%;
+            box-sizing: border-box;
+            color: #cbd5e1;
+        }
+        .action-btn {
+            background: #38bdf8;
+            color: #0f172a;
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .action-btn:hover {
+            transform: scale(1.03);
+            background: #7dd3fc;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+        }
+        .ad-space {
+            margin-top: 30px;
+            padding: 10px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            font-size: 0.75rem;
+            color: #475569;
+        }
     </style>
 </head>
 <body>
-
-    <div class="card">
-        <h1>🚀 محول ديشا السريع</h1>
-        <p>حول ملفات الـ PDF لـ Word في ثواني مجاناً</p>
-
-        <div class="ads">إعلان هنا (قريباً)</div>
-
-        <form action="/convert" method="POST" enctype="multipart/form-data">
-            <input type="file" name="pdf_file" accept=".pdf" required>
-            <button type="submit">تحويل وتحميل الآن 📥</button>
+    <div class="glass-card">
+        <div class="logo">Conver<span>ti</span></div>
+        <div class="tagline">تحويل احترافي.. في لمح البصر</div>
+        <form action="/convert" method="post" enctype="multipart/form-data">
+            <input type="file" name="pdf_file" accept=".pdf" class="custom-file-input" required>
+            <button type="submit" class="action-btn">تحويل إلى Word ⚡</button>
         </form>
-
-        <div class="ads">إعلان هنا (قريباً)</div>
+        <div class="ad-space">إعلان قريباً</div>
     </div>
-
 </body>
-  </html>
+</html>
