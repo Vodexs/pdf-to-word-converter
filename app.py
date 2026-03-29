@@ -19,20 +19,30 @@ def convert():
     if file.filename == '':
         return "اختار ملف PDF الأول", 400
 
-    temp_dir = tempfile.mkdtemp()
-    pdf_path = os.path.join(temp_dir, "input.pdf")
-    docx_path = os.path.join(temp_dir, "output.docx")
+    # استخدام tempfile.gettempdir() عشان نضمن المسار الصح في Vercel
+    base_temp = tempfile.gettempdir()
+    pdf_path = os.path.join(base_temp, "input.pdf")
+    docx_path = os.path.join(base_temp, "output.docx")
 
     try:
+        # حفظ الملف
         file.save(pdf_path)
+
+        # التأكد إن الملف اتسيف فعلاً قبل البدء
+        if not os.path.exists(pdf_path):
+            return "فشل في حفظ الملف مؤقتاً", 500
+
+        # عملية التحويل
         cv = Converter(pdf_path)
         cv.convert(docx_path)
         cv.close()
 
+        # دالة التنظيف بعد الإرسال
         @after_this_request
         def cleanup(response):
             try:
-                shutil.rmtree(temp_dir)
+                if os.path.exists(pdf_path): os.remove(pdf_path)
+                if os.path.exists(docx_path): os.remove(docx_path)
             except:
                 pass
             return response
@@ -42,10 +52,8 @@ def convert():
             as_attachment=True,
             download_name=file.filename.replace('.pdf', '.docx')
         )
-    except Exception as e:
-        if os.path.exists(temp_dir):
-            shutil.rmtree(temp_dir)
-        return f"Error: {str(e)}", 500
 
-# ده السطر المهم لـ Vercel
+    except Exception as e:
+        return f"حدث خطأ: {str(e)}", 500
+
 app = app
