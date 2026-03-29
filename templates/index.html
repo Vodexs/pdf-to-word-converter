@@ -8,7 +8,6 @@
     <style>
         :root {
             --gold: #d4af37;
-            --dark-gold: #aa841e;
             --bg: #050505;
         }
 
@@ -26,19 +25,16 @@
             padding: 20px;
         }
 
-        .ad-space {
+        /* حاوية الإعلانات عشان تظهر متسنترة وشيك */
+        .ad-container {
             width: 100%;
             max-width: 468px;
-            height: 60px;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            background: rgba(255, 255, 255, 0.02);
+            min-height: 60px;
             margin: 15px 0;
-            border-radius: 8px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            color: #555;
-            font-size: 12px;
+            align-items: center;
+            overflow: hidden;
         }
 
         .main-card {
@@ -49,7 +45,7 @@
             width: 100%;
             max-width: 350px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8), 0 0 15px rgba(212, 175, 55, 0.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
         }
 
         .title {
@@ -60,14 +56,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
-            letter-spacing: -1px;
         }
 
         .tagline {
             color: #888;
             font-size: 0.9rem;
             margin-bottom: 35px;
-            letter-spacing: 1px;
         }
 
         .file-input {
@@ -79,12 +73,6 @@
             color: var(--gold);
             margin-bottom: 25px;
             box-sizing: border-box;
-            font-size: 0.8rem;
-        }
-
-        .file-input:focus {
-            outline: none;
-            border-color: var(--gold);
         }
 
         .btn {
@@ -98,25 +86,28 @@
             font-weight: 900;
             cursor: pointer;
             transition: 0.3s;
-            text-transform: uppercase;
         }
 
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
-            filter: brightness(1.1);
-        }
-
-        .footer-note {
-            font-size: 10px;
-            color: #444;
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-    <div class="ad-space">مساحة إعلانية علوية</div>
+    <div class="ad-container">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '657a5a1643f4958e4a20c25691b66ba3',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="https://www.highperformanceformat.com/657a5a1643f4958e4a20c25691b66ba3/invoke.js"></script>
+    </div>
 
     <div class="main-card">
         <h1 class="title">Desha</h1>
@@ -126,10 +117,20 @@
             <input type="file" name="pdf_file" accept=".pdf" class="file-input" required>
             <button type="submit" class="btn">تحويل الملف الآن ⚡</button>
         </form>
-        <div class="footer-note">نظام تحويل آمن بنسبة 100%</div>
     </div>
 
-    <div class="ad-space">مساحة إعلانية سفلى</div>
+    <div class="ad-container">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : '657a5a1643f4958e4a20c25691b66ba3',
+                'format' : 'iframe',
+                'height' : 60,
+                'width' : 468,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="https://www.highperformanceformat.com/657a5a1643f4958e4a20c25691b66ba3/invoke.js"></script>
+    </div>
 
 </body>
-    </html>
+</html>
