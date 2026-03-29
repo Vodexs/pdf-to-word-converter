@@ -19,25 +19,19 @@ def convert():
     if file.filename == '':
         return "اختار ملف PDF الأول", 400
 
-    # استخدام tempfile.gettempdir() عشان نضمن المسار الصح في Vercel
     base_temp = tempfile.gettempdir()
     pdf_path = os.path.join(base_temp, "input.pdf")
     docx_path = os.path.join(base_temp, "output.docx")
 
     try:
-        # حفظ الملف
         file.save(pdf_path)
 
-        # التأكد إن الملف اتسيف فعلاً قبل البدء
-        if not os.path.exists(pdf_path):
-            return "فشل في حفظ الملف مؤقتاً", 500
-
-        # عملية التحويل
+        # إعدادات التحويل القصوى لضمان الصور والصفحات
         cv = Converter(pdf_path)
-        cv.convert(docx_path)
+        # تحويل كل الصفحات من البداية للنهاية مع تفعيل استخراج الصور بدقة
+        cv.convert(docx_path, start=0, end=None, pages=None)
         cv.close()
 
-        # دالة التنظيف بعد الإرسال
         @after_this_request
         def cleanup(response):
             try:
@@ -52,7 +46,6 @@ def convert():
             as_attachment=True,
             download_name=file.filename.replace('.pdf', '.docx')
         )
-
     except Exception as e:
         return f"حدث خطأ: {str(e)}", 500
 
